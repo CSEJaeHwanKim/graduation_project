@@ -21,7 +21,6 @@ void setup() {
    Wire.onRequest(sendData);    //데이터 전송  
 }  
   
-   
 void loop() {  
    delay(100);  
    temp = analogRead(cdsPIN);  
