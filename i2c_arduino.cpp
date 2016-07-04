@@ -64,6 +64,7 @@ int main( int argc, char ** argv) {
        }
        usleep(10000);
     }
+    printf("Hello world");
     close(file);
     return 0;
 }
