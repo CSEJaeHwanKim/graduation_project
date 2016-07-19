@@ -1,0 +1,92 @@
+
+//센서노드1 (단말노드)
+slave
+#include <XBee.h>     //xbee쉴드를 사용하기 위한 헤더파일
+
+#define DESTINATION (0x0008)  //목적지 노드 설정
+
+XBee xbee = XBee();
+//Tx16Request tx16;
+int nodeid = 7;     //자기 노드 id
+bool flag=true;
+void setup()
+{
+  Serial.begin(9600);
+  xbee.begin(9600);
+  //xbee.setSerial(Serial);
+  
+}
+
+void loop()
+{
+  uint8_t payload[]={0x00,0x01};
+
+	//xbee 패킷에 실릴 payload를 지정해주는 부분
+
+  //목적지 지정과 payload지정
+  Tx16Request tx16 = Tx16Request(DESTINATION, payload, sizeof(payload));  
+  //전송
+  xbee.send(tx16);
+  //Serial.println(tx16.getApiId());
+ // Serial.println(tx16.getFrameId());
+  
+//3초에 한번 씩 센싱값 전송
+  delay(3000);
+ 
+}
+
+
+master
+
+
+#include <XBee.h>
+
+
+XBee xbee = XBee();
+
+int nodeid = 8;
+int digitalPin=10;
+int rssiDur;
+int led = 12;
+
+Rx16Response rx16 = Rx16Response();
+int index = 0;
+void setup() {
+  xbee.begin(9600);
+  
+  pinMode(13, OUTPUT);
+  pinMode(led, OUTPUT);
+  Serial.begin(9600);
+  Serial.begin(9600);
+ 
+  digitalWrite(13, HIGH);
+  
+}
+
+void loop() {
+
+  xbee.readPacket();
+
+  
+  if (xbee.getResponse().isAvailable()) 
+  {
+    if (xbee.getResponse().getApiId() == RX_16_RESPONSE) 
+    {
+      Serial.print("RSSI VALUE -> ");
+      Serial.println(rx16.getRssi());
+      // got a rx packet
+      xbee.getResponse().getRx16Response(rx16);
+      if (rx16.getData(index)) 
+      {
+        digitalWrite(13, HIGH);
+        index = 0;
+      } 
+      else 
+      {
+        digitalWrite(13, LOW);
+        index = 1;
+      }
+    }
+
+  }
+}
