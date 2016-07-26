@@ -1,0 +1,96 @@
+MASTER code
+
+#include <XBee.h>
+XBee xbee = XBee();
+//int nodeid = 8;
+int digitalPin=10;
+int rssiDur;
+int led = 12;
+int rnodeid;
+int rtemp;
+int rhumi;
+int node[10]={0};
+XBeeResponse response = XBeeResponse();
+Rx16Response rx16 = Rx16Response();
+void setup() 
+{
+  Serial.begin(9600);
+  xbee.begin(9600);
+}
+
+void loop() 
+{
+   xbee.readPacket();
+  if (xbee.getResponse().isAvailable()) 
+  {
+    if (xbee.getResponse().getApiId() == RX_16_RESPONSE) 
+    {
+      xbee.getResponse().getRx16Response(rx16);
+      for (int i = 0; i < rx16.getDataLength(); i++) 
+      {
+        node[i]= rx16.getData(i);
+      }
+       Serial.print("nodeid= ");
+       Serial.print(node[0]);
+       Serial.print("TEMPER = ");
+       Serial.print(node[1]);
+       Serial.print("HUMI = ");
+       Serial.print(node[2]);
+       Serial.print(" ");
+       Serial.print("RSSI VALUE -> ");
+       Serial.println(rx16.getRssi());
+       delay(2000);
+    }
+  }
+}
+
+LOCAL SENSOR code
+
+#include<DHT11.h>
+#include <XBee.h>
+#define DESTINATION (0x0000)
+XBee xbee = XBee();
+int temppin=2;
+DHT11 dht11(temppin);
+int nodeid = 7;
+void setup() 
+{
+  Serial.begin(9600);
+  xbee.begin(9600); 
+}
+ 
+void loop() 
+{
+  float temp,humi;
+  int temp_1,humi_1;
+  if(dht11.read(humi, temp)== 0)  
+  {
+    temp_1 = (int) temp;    
+    humi_1 = (int) humi;
+  }
+  uint8_t payload[]={nodeid,temp_1,humi_1};
+  Tx16Request tx16 = Tx16Request(DESTINATION, payload, sizeof(payload)); 
+  xbee.send(tx16);
+  delay(3000);
+}
+
+
+RSSI code
+#include <XBee.h>
+#define DESTINATION (0x0000)
+XBee xbee = XBee();
+int nodeid = 8;
+void setup()
+{
+  Serial.begin(9600);
+  xbee.begin(9600);
+}
+
+void loop()
+{
+        uint8_t payload[] = {0};
+        Tx16Request tx16 = Tx16Request(DESTINATION, payload, sizeof(payload));
+	xbee.send(tx16);
+        Serial.println();
+        delay(3000);
+}
