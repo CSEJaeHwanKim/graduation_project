@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{df4d8eeb-eebf-4d25-84f6-ef69e236ce95}</ProjectGuid>
+    <Keyword>Linux</Keyword>
+    <RootNamespace>remote_drone</RootNamespace>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <ApplicationType>Linux</ApplicationType>
+    <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
+    <TargetLinuxPlatform>Raspberry</TargetLinuxPlatform>
+    <LinuxProjectType>{8748239F-558C-44D1-944B-07B09C35B330}</LinuxProjectType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Link>
+      <LibraryDependencies>wiringPi</LibraryDependencies>
+    </Link>
+    <RemotePostBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </RemotePostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Link>
+      <LibraryDependencies>wiringPi</LibraryDependencies>
+    </Link>
+    <RemotePostBuildEvent>
+      <Command>gpio export 17 out</Command>
+      <Message>export pin 17 using the gpio utility so that we can execute the blink program without sudo</Message>
+    </RemotePostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="controllers\altitudeController.cpp" />
+    <ClCompile Include="controllers\droneController.cpp" />
+    <ClCompile Include="controllers\landingController.cpp" />
+    <ClCompile Include="controllers\pid.cpp" />
+    <ClCompile Include="controllers\positionController.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="networks\ClientSocket.cpp" />
+    <ClCompile Include="networks\ServerSocket.cpp" />
+    <ClCompile Include="networks\Socket.cpp" />
+    <ClCompile Include="networks\UARTClass.cpp" />
+    <ClCompile Include="sensors\filters.cpp" />
+    <ClCompile Include="sensors\gps\gps.cpp" />
+    <ClCompile Include="sensors\gps\gps_nmea.cpp" />
+    <ClCompile Include="sensors\gps\gps_serial.cpp" />
+    <ClCompile Include="sensors\gy-86\HMC5883L.cpp" />
+    <ClCompile Include="sensors\gy-86\I2Cdev.cpp" />
+    <ClCompile Include="sensors\gy-86\MPU6050.cpp" />
+    <ClCompile Include="sensors\gy-86\MS5611.cpp" />
+    <ClCompile Include="sensors\gy-86\RPIGY86.cpp" />
+    <ClCompile Include="sensors\sonar\ultrasonic.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="controllers\altitudeController.h" />
+    <ClInclude Include="controllers\droneController.h" />
+    <ClInclude Include="controllers\landingController.h" />
+    <ClInclude Include="controllers\pid.h" />
+    <ClInclude Include="controllers\positionController.h" />
+    <ClInclude Include="networks\ClientSocket.h" />
+    <ClInclude Include="networks\ServerSocket.h" />
+    <ClInclude Include="networks\Socket.h" />
+    <ClInclude Include="networks\SocketException.h" />
+    <ClInclude Include="networks\UARTClass.h" />
+    <ClInclude Include="rapidjson\allocators.h" />
+    <ClInclude Include="rapidjson\document.h" />
+    <ClInclude Include="rapidjson\encodedstream.h" />
+    <ClInclude Include="rapidjson\encodings.h" />
+    <ClInclude Include="rapidjson\error\en.h" />
+    <ClInclude Include="rapidjson\error\error.h" />
+    <ClInclude Include="rapidjson\filereadstream.h" />
+    <ClInclude Include="rapidjson\filewritestream.h" />
+    <ClInclude Include="rapidjson\internal\biginteger.h" />
+    <ClInclude Include="rapidjson\internal\diyfp.h" />
+    <ClInclude Include="rapidjson\internal\dtoa.h" />
+    <ClInclude Include="rapidjson\internal\ieee754.h" />
+    <ClInclude Include="rapidjson\internal\itoa.h" />
+    <ClInclude Include="rapidjson\internal\meta.h" />
+    <ClInclude Include="rapidjson\internal\pow10.h" />
+    <ClInclude Include="rapidjson\internal\stack.h" />
+    <ClInclude Include="rapidjson\internal\strfunc.h" />
+    <ClInclude Include="rapidjson\internal\strtod.h" />
+    <ClInclude Include="rapidjson\memorybuffer.h" />
+    <ClInclude Include="rapidjson\memorystream.h" />
+    <ClInclude Include="rapidjson\msinttypes\inttypes.h" />
+    <ClInclude Include="rapidjson\msinttypes\stdint.h" />
+    <ClInclude Include="rapidjson\prettywriter.h" />
+    <ClInclude Include="rapidjson\rapidjson.h" />
+    <ClInclude Include="rapidjson\reader.h" />
+    <ClInclude Include="rapidjson\stringbuffer.h" />
+    <ClInclude Include="rapidjson\writer.h" />
+    <ClInclude Include="sensors\filters.h" />
+    <ClInclude Include="sensors\gps\gps.h" />
+    <ClInclude Include="sensors\gps\gps_nmea.h" />
+    <ClInclude Include="sensors\gps\gps_serial.h" />
+    <ClInclude Include="sensors\gy-86\HMC5883L.h" />
+    <ClInclude Include="sensors\gy-86\I2Cdev.h" />
+    <ClInclude Include="sensors\gy-86\MPU6050.h" />
+    <ClInclude Include="sensors\gy-86\MPU6050_6Axis_MotionApps20.h" />
+    <ClInclude Include="sensors\gy-86\MPU6050_9Axis_MotionApps41.h" />
+    <ClInclude Include="sensors\gy-86\MS5611.h" />
+    <ClInclude Include="sensors\gy-86\RPIGY86.h" />
+    <ClInclude Include="sensors\sonar\ultrasonic.h" />
+    <ClInclude Include="singleton.hpp" />
+  </ItemGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <AdditionalOptions>-lunistd %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>-pthread --std=c++11 -DRaspberryPi -g -ggdb %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="networks">
+      <UniqueIdentifier>{ae0e2926-1b96-44b2-84b4-54fd7688b6c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="controllers">
+      <UniqueIdentifier>{7cb894bc-388d-433d-bd6a-7b3782730e98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sensors">
+      <UniqueIdentifier>{a2817467-06b1-487b-9856-fb1413f6c338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sensors\gy-86">
+      <UniqueIdentifier>{23089537-6748-40e5-9e73-6b38f4590795}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sensors\gps">
+      <UniqueIdentifier>{66b79636-f575-4ded-ae72-93cc25f8af3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sensors\sonar">
+      <UniqueIdentifier>{d066be36-260c-455b-8000-cb1101cde7a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rapidjson">
+      <UniqueIdentifier>{0f097c93-1bdc-4e64-befe-1ac230834e6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rapidjson\error">
+      <UniqueIdentifier>{7017815c-384a-4976-805f-b26bced1ac9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rapidjson\internal">
+      <UniqueIdentifier>{bbaea0e5-0729-457a-b3e6-9cd5ab0bd85f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rapidjson\msinttypes">
+      <UniqueIdentifier>{558ad73e-d6b2-4b1e-bfcd-f66b0c18eaab}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="networks\ClientSocket.cpp">
+      <Filter>networks</Filter>
+    </ClCompile>
+    <ClCompile Include="networks\ServerSocket.cpp">
+      <Filter>networks</Filter>
+    </ClCompile>
+    <ClCompile Include="networks\Socket.cpp">
+      <Filter>networks</Filter>
+    </ClCompile>
+    <ClCompile Include="networks\UARTClass.cpp">
+      <Filter>networks</Filter>
+    </ClCompile>
+    <ClCompile Include="controllers\droneController.cpp">
+      <Filter>controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="controllers\landingController.cpp">
+      <Filter>controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="controllers\pid.cpp">
+      <Filter>controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="controllers\positionController.cpp">
+      <Filter>controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="sensors\gy-86\HMC5883L.cpp">
+      <Filter>sensors\gy-86</Filter>
+    </ClCompile>
+    <ClCompile Include="sensors\gy-86\I2Cdev.cpp">
+      <Filter>sensors\gy-86</Filter>
+    </ClCompile>
+    <ClCompile Include="sensors\gy-86\MPU6050.cpp">
+      <Filter>sensors\gy-86</Filter>
+    </ClCompile>
+    <ClCompile Include="sensors\gy-86\MS5611.cpp">
+      <Filter>sensors\gy-86</Filter>
+    </ClCompile>
+    <ClCompile Include="sensors\gy-86\RPIGY86.cpp">
+      <Filter>sensors\gy-86</Filter>
+    </ClCompile>
+    <ClCompile Include="sensors\gps\gps.cpp">
+      <Filter>sensors\gps</Filter>
+    </ClCompile>
+    <ClCompile Include="sensors\gps\gps_nmea.cpp">
+      <Filter>sensors\gps</Filter>
+    </ClCompile>
+    <ClCompile Include="sensors\gps\gps_serial.cpp">
+      <Filter>sensors\gps</Filter>
+    </ClCompile>
+    <ClCompile Include="sensors\sonar\ultrasonic.cpp">
+      <Filter>sensors\sonar</Filter>
+    </ClCompile>
+    <ClCompile Include="sensors\filters.cpp">
+      <Filter>sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="controllers\altitudeController.cpp">
+      <Filter>controllers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="networks\ClientSocket.h">
+      <Filter>networks</Filter>
+    </ClInclude>
+    <ClInclude Include="networks\ServerSocket.h">
+      <Filter>networks</Filter>
+    </ClInclude>
+    <ClInclude Include="networks\Socket.h">
+      <Filter>networks</Filter>
+    </ClInclude>
+    <ClInclude Include="networks\SocketException.h">
+      <Filter>networks</Filter>
+    </ClInclude>
+    <ClInclude Include="networks\UARTClass.h">
+      <Filter>networks</Filter>
+    </ClInclude>
+    <ClInclude Include="controllers\droneController.h">
+      <Filter>controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="controllers\landingController.h">
+      <Filter>controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="controllers\pid.h">
+      <Filter>controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="controllers\positionController.h">
+      <Filter>controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="sensors\gy-86\HMC5883L.h">
+      <Filter>sensors\gy-86</Filter>
+    </ClInclude>
+    <ClInclude Include="sensors\gy-86\I2Cdev.h">
+      <Filter>sensors\gy-86</Filter>
+    </ClInclude>
+    <ClInclude Include="sensors\gy-86\MPU6050.h">
+      <Filter>sensors\gy-86</Filter>
+    </ClInclude>
+    <ClInclude Include="sensors\gy-86\MPU6050_6Axis_MotionApps20.h">
+      <Filter>sensors\gy-86</Filter>
+    </ClInclude>
+    <ClInclude Include="sensors\gy-86\MPU6050_9Axis_MotionApps41.h">
+      <Filter>sensors\gy-86</Filter>
+    </ClInclude>
+    <ClInclude Include="sensors\gy-86\MS5611.h">
+      <Filter>sensors\gy-86</Filter>
+    </ClInclude>
+    <ClInclude Include="sensors\gy-86\RPIGY86.h">
+      <Filter>sensors\gy-86</Filter>
+    </ClInclude>
+    <ClInclude Include="sensors\gps\gps.h">
+      <Filter>sensors\gps</Filter>
+    </ClInclude>
+    <ClInclude Include="sensors\gps\gps_nmea.h">
+      <Filter>sensors\gps</Filter>
+    </ClInclude>
+    <ClInclude Include="sensors\gps\gps_serial.h">
+      <Filter>sensors\gps</Filter>
+    </ClInclude>
+    <ClInclude Include="sensors\sonar\ultrasonic.h">
+      <Filter>sensors\sonar</Filter>
+    </ClInclude>
+    <ClInclude Include="sensors\filters.h">
+      <Filter>sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.hpp" />
+    <ClInclude Include="rapidjson\allocators.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\document.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\encodedstream.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\encodings.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\filereadstream.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\filewritestream.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\memorybuffer.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\memorystream.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\prettywriter.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\rapidjson.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\reader.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\stringbuffer.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\writer.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\error\en.h">
+      <Filter>rapidjson\error</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\error\error.h">
+      <Filter>rapidjson\error</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\biginteger.h">
+      <Filter>rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\diyfp.h">
+      <Filter>rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\dtoa.h">
+      <Filter>rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\ieee754.h">
+      <Filter>rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\itoa.h">
+      <Filter>rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\meta.h">
+      <Filter>rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\pow10.h">
+      <Filter>rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\stack.h">
+      <Filter>rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\strfunc.h">
+      <Filter>rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\strtod.h">
+      <Filter>rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\msinttypes\inttypes.h">
+      <Filter>rapidjson\msinttypes</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\msinttypes\stdint.h">
+      <Filter>rapidjson\msinttypes</Filter>
+    </ClInclude>
+    <ClInclude Include="controllers\altitudeController.h">
+      <Filter>controllers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

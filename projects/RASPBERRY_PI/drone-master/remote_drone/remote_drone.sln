@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "remote_drone", "remote_drone\remote_drone.vcxproj", "{DF4D8EEB-EEBF-4D25-84F6-EF69E236CE95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF4D8EEB-EEBF-4D25-84F6-EF69E236CE95}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DF4D8EEB-EEBF-4D25-84F6-EF69E236CE95}.Debug|ARM.Build.0 = Debug|ARM
+		{DF4D8EEB-EEBF-4D25-84F6-EF69E236CE95}.Debug|ARM.Deploy.0 = Debug|ARM
+		{DF4D8EEB-EEBF-4D25-84F6-EF69E236CE95}.Release|ARM.ActiveCfg = Release|ARM
+		{DF4D8EEB-EEBF-4D25-84F6-EF69E236CE95}.Release|ARM.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
